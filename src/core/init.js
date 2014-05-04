@@ -5,6 +5,8 @@ define([
 	"../traversing/findFilter"
 ], function( jQuery, rsingleTag ) {
 
+
+/// From core/init.js
 // A central reference to the root jQuery(document)
 var rootjQuery,
 

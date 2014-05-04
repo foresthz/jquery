@@ -4,6 +4,7 @@ define([
 	"../deferred"
 ], function( jQuery ) {
 
+/// From core/ready.js
 // The deferred used on DOM ready
 var readyList;
 

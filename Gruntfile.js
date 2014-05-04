@@ -1,9 +1,13 @@
+
+// 这个文件是只描述的，可以尝试读懂
 module.exports = function( grunt ) {
 	"use strict";
-
+	// 编写了一个读取json数据的函数
 	function readOptionalJSON( filepath ) {
 		var data = {};
 		try {
+			// 这个函数是grunt自带的么?
+			// 如何对这种Grunt.js代码进行调试呢?
 			data = grunt.file.readJSON( filepath );
 		} catch ( e ) {}
 		return data;
@@ -46,6 +50,7 @@ module.exports = function( grunt ) {
 				}
 			}
 		},
+		// 还需要用到bowercopy做什么?
 		bowercopy: {
 			options: {
 				clean: true
@@ -66,6 +71,7 @@ module.exports = function( grunt ) {
 				}
 			}
 		},
+		// 这个又是干啥的?
 		jsonlint: {
 			pkg: {
 				src: [ "package.json" ]
@@ -79,6 +85,7 @@ module.exports = function( grunt ) {
 				src: [ "bower.json" ]
 			}
 		},
+		// 这个是干啥的?
 		jshint: {
 			all: {
 				src: [
@@ -106,6 +113,7 @@ module.exports = function( grunt ) {
 			files: [ "<%= jshint.all.src %>" ],
 			tasks: "dev"
 		},
+		// 压缩对应的配置
 		uglify: {
 			all: {
 				files: {

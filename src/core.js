@@ -11,6 +11,8 @@ define([
 	"./var/support"
 ], function( arr, slice, concat, push, indexOf, class2type, toString, hasOwn, trim, support ) {
 
+
+///  From Core.js
 var
 	// Use the correct document accordingly with window argument (sandbox)
 	document = window.document,
@@ -51,6 +53,7 @@ jQuery.fn = jQuery.prototype = {
 
 	// Get the Nth element in the matched element set OR
 	// Get the whole matched element set as a clean array
+	// 成员函数可以这么定义
 	get: function( num ) {
 		return num != null ?
 
