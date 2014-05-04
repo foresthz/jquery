@@ -1,3 +1,4 @@
+// 这个类前面没有定义依赖?
 define(function() {
 
 function addGetHookIf( conditionFn, hookFn ) {

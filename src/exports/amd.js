@@ -2,6 +2,7 @@ define([
 	"../core"
 ], function( jQuery ) {
 
+// amd模块放在最后添加?
 // Register as a named AMD module, since jQuery can be concatenated with other
 // files that may use define, but not via a proper concatenation script that
 // understands anonymous AMD modules. A named AMD is safest and most robust

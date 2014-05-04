@@ -1,3 +1,5 @@
+
+// 这里有顺序，是把core目录下所有文件合并么?
 define([
 	"../core",
 	"./var/nonce",

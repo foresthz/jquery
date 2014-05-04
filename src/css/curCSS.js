@@ -1,3 +1,7 @@
+
+// 这个果然是requirejs的语法，引用顺序是有关系的
+// 相对于傻姑娘一层的core.js,这对于之后js合并也有作用?
+// var目录下几个文件顺序是有关系的
 define([
 	"../core",
 	"./var/rnumnonpx",

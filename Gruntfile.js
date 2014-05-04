@@ -13,6 +13,7 @@ module.exports = function( grunt ) {
 		return data;
 	}
 
+	// require是requirejs里面的代码么?
 	var gzip = require( "gzip-js" ),
 		srcHintOptions = readOptionalJSON( "src/.jshintrc" );
 
@@ -85,7 +86,7 @@ module.exports = function( grunt ) {
 				src: [ "bower.json" ]
 			}
 		},
-		// 这个是干啥的?
+		// 这个是干啥的?这个插件是干啥的?
 		jshint: {
 			all: {
 				src: [
@@ -109,6 +110,7 @@ module.exports = function( grunt ) {
 		testswarm: {
 			tests: "ajax attributes callbacks core css data deferred dimensions effects event manipulation offset queue selector serialize support traversing Sizzle".split( " " )
 		},
+		// 这里的dev任务是什么?
 		watch: {
 			files: [ "<%= jshint.all.src %>" ],
 			tasks: "dev"
@@ -153,5 +155,5 @@ module.exports = function( grunt ) {
 	grunt.registerTask( "dev", [ "build:*:*", "jshint", "jscs" ] );
 
 	// Default grunt
-	grunt.registerTask( "default", [ "jsonlint", "dev", "uglify", "dist:*", "compare_size" ] );
+	grunt.registerTask( "default", [ "jsonlint", "dev", "uglify", "dist:*", "compare_size", "compare_size" ] );
 };

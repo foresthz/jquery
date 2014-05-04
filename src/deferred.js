@@ -1,3 +1,5 @@
+
+// deferred.js有什么作用？
 define([
 	"./core",
 	"./var/slice",

@@ -15,6 +15,7 @@ jQuery.fn.ready = function( fn ) {
 	return this;
 };
 
+// extend函数被大量使用
 jQuery.extend({
 	// Is the DOM ready to be used? Set to true once it occurs.
 	isReady: false,
@@ -92,6 +93,7 @@ jQuery.ready.promise = function( obj ) {
 };
 
 // Kick off the DOM ready check even if the user does not
+// 这个函数没有返回值？
 jQuery.ready.promise();
 
 });
