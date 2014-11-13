@@ -8,6 +8,7 @@ module.exports = function( grunt ) {
 	"use strict";
 
 	var fs = require( "fs" ),
+		// 基于requireJS开发的工具
 		requirejs = require( "requirejs" ),
 		srcFolder = __dirname + "/../../src/",
 		rdefineEnd = /\}\);[^}\w]*$/,

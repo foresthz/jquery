@@ -1,3 +1,4 @@
+// core文件对应于jQuery变量?
 define([
 	"./core",
 	"./attributes/attr",

@@ -1,3 +1,9 @@
+// 从生成代码看，slice,concat,push几个声明的次序调换关系不大
+// 这些define实际上生成了一堆变量
+// define里面的函数参数定义，决定了生成代码中对应变量定义?
+// 这些都是在core.js里定义必须在其前面的内容。
+// 有哪个文件指明自己必须在core前面呢?
+// 名称必须一致么?或者可以不一致?
 define([
 	"./var/arr",
 	"./var/slice",
@@ -10,13 +16,19 @@ define([
 	"./var/support"
 ], function( arr, slice, concat, push, indexOf, class2type, toString, hasOwn, support ) {
 
+// 前面开头的代码从何而来？
+// 大部分代码主线可以从/jquery.js上看出
+///  From Core.js
 var
 	// Use the correct document accordingly with window argument (sandbox)
 	document = window.document,
 
+	// 这个值是如何初始化的？
 	version = "@VERSION",
 
 	// Define a local copy of jQuery
+	// jQuery对象在此处初始化，指向一个函数，这里面的选择器是一个很重要的概念，那context是啥?
+	// 可以有选择器表达式，不过这个也不是context参数啊
 	jQuery = function( selector, context ) {
 		// The jQuery object is actually just the init constructor 'enhanced'
 		// Need init if jQuery is called (just allow error to be thrown if not included)
@@ -36,6 +48,7 @@ var
 		return letter.toUpperCase();
 	};
 
+// fn函数应该是比较重要的
 jQuery.fn = jQuery.prototype = {
 	// The current version of jQuery being used
 	jquery: version,
@@ -48,12 +61,14 @@ jQuery.fn = jQuery.prototype = {
 	// The default length of a jQuery object is 0
 	length: 0,
 
+	// 定义了toArray函数@core,数组中的call有这么重要?
 	toArray: function() {
 		return slice.call( this );
 	},
 
 	// Get the Nth element in the matched element set OR
 	// Get the whole matched element set as a clean array
+	// 成员函数可以这么定义
 	get: function( num ) {
 		return num != null ?
 
@@ -82,6 +97,7 @@ jQuery.fn = jQuery.prototype = {
 	// Execute a callback for every element in the matched set.
 	// (You can seed the arguments with an array of args, but this is
 	// only used internally.)
+    // ? JS本身有Each方法么?
 	each: function( callback, args ) {
 		return jQuery.each( this, callback, args );
 	},
@@ -121,14 +137,18 @@ jQuery.fn = jQuery.prototype = {
 	splice: arr.splice
 };
 
+// extend又是一个重要概念
+// prototype中有extend字段么?这里为jQuery扩展了extend字段?还是将extend指向新的对象?
 jQuery.extend = jQuery.fn.extend = function() {
 	var options, name, src, copy, copyIsArray, clone,
+        // 直接通过这种方式获取参数?如果没有参数，则初始化为空字典?
 		target = arguments[0] || {},
 		i = 1,
 		length = arguments.length,
 		deep = false;
 
 	// Handle a deep copy situation
+    // 这个i是全局变量么，又不是循环，i能加几次?
 	if ( typeof target === "boolean" ) {
 		deep = target;
 
@@ -138,6 +158,7 @@ jQuery.extend = jQuery.fn.extend = function() {
 	}
 
 	// Handle case when target is a string or something (possible in deep copy)
+    // isFunction方法是每个对象都有的么?
 	if ( typeof target !== "object" && !jQuery.isFunction(target) ) {
 		target = {};
 	}
@@ -274,6 +295,7 @@ jQuery.extend({
 	},
 
 	// args is for internal usage only
+    // each居然定义在这里了
 	each: function( obj, callback, args ) {
 		var value,
 			i = 0,
@@ -462,6 +484,7 @@ jQuery.each("Boolean Number String Function Array Date RegExp Object Error".spli
 	class2type[ "[object " + name + "]" ] = name.toLowerCase();
 });
 
+// 为何后面会生成的是sizzle，而且是大写变量?
 function isArraylike( obj ) {
 	var length = obj.length,
 		type = jQuery.type( obj );

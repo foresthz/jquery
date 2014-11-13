@@ -1,3 +1,6 @@
+
+// 这些参数有啥用?又不和前面变量一一对应
+
 define([
 	"./core",
 	"./data/var/data_priv",

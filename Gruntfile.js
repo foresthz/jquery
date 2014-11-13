@@ -1,14 +1,20 @@
+
+// 这个文件是只描述的，可以尝试读懂
+// 总体就是一个函数
 module.exports = function( grunt ) {
 	"use strict";
-
+	// 编写了一个读取json数据的函数
 	function readOptionalJSON( filepath ) {
 		var data = {};
 		try {
+			// 这个函数是grunt自带的么?
+			// 如何对这种Grunt.js代码进行调试呢?
 			data = grunt.file.readJSON( filepath );
 		} catch ( e ) {}
 		return data;
 	}
 
+	// require是requirejs里面的代码么?
 	var gzip = require( "gzip-js" ),
 		srcHintOptions = readOptionalJSON( "src/.jshintrc" );
 
@@ -46,6 +52,7 @@ module.exports = function( grunt ) {
 				}
 			}
 		},
+		// 还需要用到bowercopy做什么?
 		bowercopy: {
 			all: {
 				options: {
@@ -67,6 +74,7 @@ module.exports = function( grunt ) {
 				}
 			}
 		},
+		// 这个又是干啥的?
 		jsonlint: {
 			pkg: {
 				src: [ "package.json" ]
@@ -76,6 +84,7 @@ module.exports = function( grunt ) {
 				src: [ "bower.json" ]
 			}
 		},
+		// 这个是干啥的?这个插件是干啥的?
 		jshint: {
 			all: {
 				src: [
@@ -102,10 +111,14 @@ module.exports = function( grunt ) {
 		testswarm: {
 			tests: "ajax attributes callbacks core css data deferred dimensions effects event manipulation offset queue selector serialize support traversing".split( " " )
 		},
+		// 这里的dev任务是什么?
 		watch: {
 			files: [ "<%= jshint.all.src %>" ],
 			tasks: "dev"
 		},
+		// 压缩对应的配置,也是用于合并的? 这里看到min.js了,可见是配置生成文件
+		// 是根据哪些信息,达到文件合并的目的呢? 可以和requrejs结合使用?
+		// 在前端和后台都实现通用
 		uglify: {
 			all: {
 				files: {
@@ -145,5 +158,6 @@ module.exports = function( grunt ) {
 	grunt.registerTask( "dev", [ "build:*:*", "lint" ] );
 
 	// Default grunt
-	grunt.registerTask( "default", [ "jsonlint", "dev", "uglify", "dist:*", "compare_size" ] );
+	// 默认命令,对应conig里面好几个配置
+	grunt.registerTask( "default", [ "jsonlint", "dev", "uglify", "dist:*", "compare_size", "compare_size" ] );
 };

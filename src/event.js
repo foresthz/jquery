@@ -1,3 +1,5 @@
+
+// 文件名和参数名相同
 define([
 	"./core",
 	"./var/strundefined",
