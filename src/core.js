@@ -16,6 +16,9 @@ define([
 	"./var/support"
 ], function( arr, slice, concat, push, indexOf, class2type, toString, hasOwn, support ) {
 
+// define里定义的依赖,都在函数列表中
+// 为何有些有函数列表,另一些没有?
+
 // 前面开头的代码从何而来？
 // 大部分代码主线可以从/jquery.js上看出
 ///  From Core.js
