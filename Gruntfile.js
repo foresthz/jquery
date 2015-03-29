@@ -3,18 +3,19 @@
 // 总体就是一个函数
 module.exports = function( grunt ) {
 	"use strict";
+
 	// 编写了一个读取json数据的函数
 	function readOptionalJSON( filepath ) {
 		var data = {};
 		try {
 			// 这个函数是grunt自带的么?
-			// 如何对这种Grunt.js代码进行调试呢?
+			// 如何对这种Grunt.js代码进行调试呢? 调用的也是内部函数
 			data = grunt.file.readJSON( filepath );
 		} catch ( e ) {}
 		return data;
 	}
 
-	// require是requirejs里面的代码么?
+	// require是requirejs里面的代码么? 直接加载grunt源码
 	var gzip = require( "gzip-js" ),
 		srcHintOptions = readOptionalJSON( "src/.jshintrc" );
 
@@ -22,6 +23,7 @@ module.exports = function( grunt ) {
 	// But our modules can
 	delete srcHintOptions.onevar;
 
+	// init里面放了太多东西. 这些和任务有啥关系?
 	grunt.initConfig({
 		pkg: grunt.file.readJSON( "package.json" ),
 		dst: readOptionalJSON( "dist/.destination.json" ),
@@ -149,8 +151,10 @@ module.exports = function( grunt ) {
 	require( "load-grunt-tasks" )( grunt );
 
 	// Integrate jQuery specific tasks
+	// 目录里放了很多任务文件
 	grunt.loadTasks( "build/tasks" );
 
+	// 任务别名?
 	grunt.registerTask( "bower", "bowercopy" );
 	grunt.registerTask( "lint", [ "jshint", "jscs" ] );
 
@@ -158,6 +162,6 @@ module.exports = function( grunt ) {
 	grunt.registerTask( "dev", [ "build:*:*", "lint" ] );
 
 	// Default grunt
-	// 默认命令,对应conig里面好几个配置
+	// 默认命令,对应conig里面好几个配置,以此执行多个命令
 	grunt.registerTask( "default", [ "jsonlint", "dev", "uglify", "dist:*", "compare_size", "compare_size" ] );
 };
