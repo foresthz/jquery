@@ -9,6 +9,7 @@ define([
 	"./deferred"
 ], function( jQuery, rnotwhite, nonce, rquery ) {
 
+// ajax模块
 var
 	// Document location
 	ajaxLocParts,

@@ -1,0 +1,12 @@
+
+<meta charset=utf8 />
+<script type="text/javascript" src="res/static/requirejs/require.js"></script>
+
+<script type="text/javascript">
+// require(['../dist/jquery'], function(){});
+require(['../src/jquery'], function(){});
+</script>
+
+#如果本地已经成功加载JQuery,还有必要使用远程的md.js么? **今后本地的例子,前端依赖都要从本地加载**, 这样可以获取最高的本地性能. 从网络加载,特别是从rawgit加载,性能十分低.
+
+* 如何构建一个可以测试各项JQ功能的页面,值得考虑.

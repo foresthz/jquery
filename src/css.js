@@ -20,6 +20,8 @@ define([
 ], function( jQuery, pnum, access, rmargin, rnumnonpx, cssExpand, isHidden,
 	getStyles, curCSS, defaultDisplay, addGetHookIf, support, data_priv ) {
 
+// 最后转化为 var pnum=和var access=
+// 下面几个文件,不在函数列表中. 这个是AMD规范么?
 var
 	// Swappable if display is none or starts with table except "table", "table-cell", or "table-caption"
 	// See here for display values: https://developer.mozilla.org/en-US/docs/CSS/display

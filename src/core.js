@@ -16,6 +16,9 @@ define([
 	"./var/support"
 ], function( arr, slice, concat, push, indexOf, class2type, toString, hasOwn, support ) {
 
+// define里定义的依赖,都在函数列表中
+// 为何有些有函数列表,另一些没有?
+
 // 前面开头的代码从何而来？
 // 大部分代码主线可以从/jquery.js上看出
 ///  From Core.js
@@ -48,7 +51,8 @@ var
 		return letter.toUpperCase();
 	};
 
-// fn函数应该是比较重要的
+// fn函数应该是比较重要的, jQuery是函数,fn对其进行了继承? 这里为jQuery的prototype做了设定.
+// 基础实战,还是在f2etemp项目中做记录吧.
 jQuery.fn = jQuery.prototype = {
 	// The current version of jQuery being used
 	jquery: version,
@@ -133,6 +137,7 @@ jQuery.fn = jQuery.prototype = {
 	// For internal use only.
 	// Behaves like an Array's method, not like a jQuery method.
 	push: push,
+  // 直接指向了arr的sort函数, 基于Portotype的设计,也是代码重用的一种很好方式啊. 每个函数都有一个Prototype,对象是共享一个Prototype,也可以修改自身的prototype? prototype可以有一条链
 	sort: arr.sort,
 	splice: arr.splice
 };
