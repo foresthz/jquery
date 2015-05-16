@@ -97,9 +97,12 @@ module.exports = function( grunt ) {
 		return contents;
 	}
 
+	// 注册了一个函数,这个函数在什么时候调用的?
 	grunt.registerMultiTask(
 		"build",
 		"Concatenate source, remove sub AMD definitions, (include/exclude modules with +/- flags), embed date/version",
+
+	// 这个task可以做什么操作呢?
 	function() {
 		var flag, index,
 			done = this.async(),
@@ -116,6 +119,7 @@ module.exports = function( grunt ) {
 			 * @param {Array} list
 			 * @param {String} [prepend] Prepend this to the module name. Indicates we're walking a directory
 			 */
+			 // 直接把变量定义成函数, JQuery可定制的编译. 
 			excludeList = function( list, prepend ) {
 				if ( list ) {
 					prepend = prepend ? prepend + "/" : "";

@@ -151,7 +151,7 @@ module.exports = function( grunt ) {
 	require( "load-grunt-tasks" )( grunt );
 
 	// Integrate jQuery specific tasks
-	// 目录里放了很多任务文件
+	// 目录里放了很多任务文件,这里只是注册了很多任务,默认是执行default任务?
 	grunt.loadTasks( "build/tasks" );
 
 	// 任务别名?
