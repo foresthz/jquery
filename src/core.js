@@ -4,8 +4,15 @@
 // 这些都是在core.js里定义必须在其前面的内容。
 // 有哪个文件指明自己必须在core前面呢?
 // 名称必须一致么?或者可以不一致?
+
+
+// querySelectorAll出来后,Jquery的实现可以简化很多
+// ES6出来之后,Jquery代码是否可以进一步简化,还有必要使用AMD模块么? 为何不能像Java那样使用各种设计模式和组织代码呢?
+// AMD出来有多久了? 
+
 define([
 	"./var/arr",
+	"./var/myvar",
 	"./var/slice",
 	"./var/concat",
 	"./var/push",
@@ -14,7 +21,9 @@ define([
 	"./var/toString",
 	"./var/hasOwn",
 	"./var/support"
-], function( arr, slice, concat, push, indexOf, class2type, toString, hasOwn, support ) {
+
+	// 生成代码中,function没了,集合到了一个代码中, 为何代码没乱掉? 
+], function( arr, myvar03, slice, concat, push, indexOf, class2type, toString, hasOwn, support ) {
 
 // define里定义的依赖,都在函数列表中
 // 为何有些有函数列表,另一些没有?

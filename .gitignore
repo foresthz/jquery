@@ -9,6 +9,9 @@
 .bower.json
 .sizecache.json
 
+src/sizzle.js
+
 /dist
 /bower_components
 /node_modules
+**/res/static/
