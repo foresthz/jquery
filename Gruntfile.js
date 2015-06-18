@@ -28,6 +28,7 @@ module.exports = function( grunt ) {
 		pkg: grunt.file.readJSON( "package.json" ),
 		dst: readOptionalJSON( "dist/.destination.json" ),
 		compare_size: {
+			// 比较大小有什么意义?
 			files: [ "dist/jquery.js", "dist/jquery.min.js" ],
 			options: {
 				compress: {
@@ -38,6 +39,7 @@ module.exports = function( grunt ) {
 				cache: "build/.sizecache.json"
 			}
 		},
+		// 这个是build命令? 是默认命令么?
 		build: {
 			all: {
 				dest: "dist/jquery.js",
