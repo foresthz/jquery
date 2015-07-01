@@ -158,9 +158,12 @@ module.exports = function( grunt ) {
 
 	// 任务别名?
 	grunt.registerTask( "bower", "bowercopy" );
+
+	// 使用两种工具进行语法检查? 使用gulp可以做语法检查么? 这部分代码可以快速替换掉?
 	grunt.registerTask( "lint", [ "jshint", "jscs" ] );
 
 	// Short list as a high frequency watch task
+	// build下面有多种配置?
 	grunt.registerTask( "dev", [ "build:*:*", "lint" ] );
 
 	// Default grunt
