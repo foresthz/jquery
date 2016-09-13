@@ -5,6 +5,8 @@ define([
 	"./core/init",
 	"./traversing/findFilter",
 	"./selector"
+   // the core module is encapsulated by jQuery object
+   // the variables correspond to the modules sequencely
 ], function( jQuery, indexOf, rneedsContext ) {
 
 var rparentsprev = /^(?:parents|prev(?:Until|All))/,
@@ -45,6 +47,8 @@ jQuery.extend({
 	}
 });
 
+// add function to jquery namespce
+// extend with an object including key:value pairs, where the value is defination of specific function
 jQuery.fn.extend({
 	has: function( target ) {
 		var targets = jQuery( target, this ),
@@ -53,6 +57,7 @@ jQuery.fn.extend({
 		return this.filter(function() {
 			var i = 0;
 			for ( ; i < l; i++ ) {
+				// if one object is included, has function will return true
 				if ( jQuery.contains( this, targets[i] ) ) {
 					return true;
 				}
