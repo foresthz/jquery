@@ -4,11 +4,9 @@
 // 这些都是在core.js里定义必须在其前面的内容。
 // 有哪个文件指明自己必须在core前面呢?
 // 名称必须一致么?或者可以不一致?
-
-
 // querySelectorAll出来后,Jquery的实现可以简化很多
 // ES6出来之后,Jquery代码是否可以进一步简化,还有必要使用AMD模块么? 为何不能像Java那样使用各种设计模式和组织代码呢?
-// AMD出来有多久了? 
+// AMD出来有多久了?
 
 define([
 	"./var/arr",
@@ -21,10 +19,10 @@ define([
 	"./var/toString",
 	"./var/hasOwn",
 	"./var/support"
+	// 生成代码中,function没了,集合到了一个代码中, 为何代码没乱掉?
+], function( arr, myvar, slice, concat, push, indexOf, class2type, toString, hasOwn, support ) {
 
-	// 生成代码中,function没了,集合到了一个代码中, 为何代码没乱掉? 
-], function( arr, myvar03, slice, concat, push, indexOf, class2type, toString, hasOwn, support ) {
-
+// console.info(my_array_prototype);  console not defined
 // define里定义的依赖,都在函数列表中
 // 为何有些有函数列表,另一些没有?
 
@@ -34,13 +32,15 @@ define([
 var
 	// Use the correct document accordingly with window argument (sandbox)
 	document = window.document,
-
+	// my defination. cannot assign to protytype? 
+	my_array_prototype = myvar,
 	// 这个值是如何初始化的？
 	version = "@VERSION",
 
 	// Define a local copy of jQuery
 	// jQuery对象在此处初始化，指向一个函数，这里面的选择器是一个很重要的概念，那context是啥?
 	// 可以有选择器表达式，不过这个也不是context参数啊
+	// in fact this is a definition of js class
 	jQuery = function( selector, context ) {
 		// The jQuery object is actually just the init constructor 'enhanced'
 		// Need init if jQuery is called (just allow error to be thrown if not included)
@@ -153,6 +153,8 @@ jQuery.fn = jQuery.prototype = {
 
 // extend又是一个重要概念
 // prototype中有extend字段么?这里为jQuery扩展了extend字段?还是将extend指向新的对象?
+// this function is used to write plugin for jquery
+// why a namespace named fn is added to jQuery?
 jQuery.extend = jQuery.fn.extend = function() {
 	var options, name, src, copy, copyIsArray, clone,
         // 直接通过这种方式获取参数?如果没有参数，则初始化为空字典?
@@ -216,7 +218,6 @@ jQuery.extend = jQuery.fn.extend = function() {
 			}
 		}
 	}
-
 	// Return the modified object
 	return target;
 };
@@ -239,6 +240,9 @@ jQuery.extend({
 	},
 
 	isArray: Array.isArray,
+
+	// my definition
+	isMyArray: my_array_prototype.isArray,
 
 	isWindow: function( obj ) {
 		return obj != null && obj === obj.window;

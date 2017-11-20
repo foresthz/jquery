@@ -11,6 +11,7 @@ define([
 	"./css/defaultDisplay",
 	"./css/addGetHookIf",
 	"./css/support",
+	// one var is defined at another location, why?
 	"./data/var/data_priv",
 
 	"./core/init",

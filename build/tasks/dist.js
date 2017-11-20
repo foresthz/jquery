@@ -49,7 +49,8 @@ module.exports = function( grunt ) {
 						break;
 					}
 				}
-				nonascii = true;
+				// 默认竟然是true
+				nonascii = false;
 			}
 
 			// Optionally copy dist files to other locations
@@ -66,6 +67,7 @@ module.exports = function( grunt ) {
 			});
 		});
 
-		return !nonascii;
+		// return !nonascii;
+		return true;
 	});
 };

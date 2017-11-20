@@ -17,6 +17,7 @@ module.exports = function( grunt ) {
 
 	// require是requirejs里面的代码么? 直接加载grunt源码
 	var gzip = require( "gzip-js" ),
+	  // all the options are defined in this file
 		srcHintOptions = readOptionalJSON( "src/.jshintrc" );
 
 	// The concatenated file won't pass onevar
@@ -98,6 +99,7 @@ module.exports = function( grunt ) {
 					jshintrc: true
 				}
 			},
+			// dist Non-ASCII报错?
 			dist: {
 				src: "dist/jquery.js",
 				options: srcHintOptions
@@ -133,8 +135,9 @@ module.exports = function( grunt ) {
 					sourceMap: "dist/jquery.min.map",
 					sourceMappingURL: "jquery.min.map",
 					report: "min",
+					// // // // ascii only here
 					beautify: {
-						ascii_only: true
+						ascii_only: false
 					},
 					banner: "/*! jQuery v<%= pkg.version %> | " +
 						"(c) 2005, <%= grunt.template.today('yyyy') %> jQuery Foundation, Inc. | " +
