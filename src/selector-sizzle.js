@@ -8,7 +8,9 @@ define([
 	// 需要修改路径
 	// 修改后可以直接通过requirejs加载,但是编译时要出错.
 	// "../res/static/sizzle/dist/sizzle",
-	"sizzle"
+	// 必须在前面加 点号,否则webpack无法打包？
+	"./sizzle"
+	// "sizzle"
 ], function( jQuery, Sizzle ) {
 
 // sizzle是sizzle返回, sizzle代码是否集成到最后代码呢?

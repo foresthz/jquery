@@ -9,7 +9,8 @@
 .bower.json
 .sizecache.json
 
-src/sizzle.js
+#src/sizzle.js
+webpack_jquery.js
 
 /dist
 /bower_components

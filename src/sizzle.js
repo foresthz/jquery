@@ -9,7 +9,7 @@
  * Date: 2014-06-25
  */
 
-// 原来sizzle
+// 从external拷贝过来的,默认从原来位置编译
 
 (function( window ) {
 
